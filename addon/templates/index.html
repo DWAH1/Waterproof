@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #1e252b;
+            color: aliceblue;
+        }
+
+        .spoiler_body {display:none;}
+        .spoiler_links {cursor:pointer;}
+
+        #tx-title {background: cornflowerblue; border: 0;
+                   border-radius: 2px;
+        }
+        #tx-time {
+            background: cornflowerblue; border: 0; align-content: center;
+            margin-top: 3px; border-radius: 2px;
+        }
+        /*common style for lightning button*/
+        .button-view {
+                cursor:pointer;
+              color: #FFF0F5;
+              border: 0 solid #eee;
+              overflow: hidden;
+              display: block;
+              text-align: center;
+              line-height: 0;
+              /*transition*/
+              -webkit-transition: All 0.5s ease;
+              -moz-transition: All 0.5s ease;
+              -o-transition: All 0.5s ease;
+              transition: All 0.5s ease;
+              /*angle*/
+              -webkit-border-radius: 1px;
+              -moz-border-radius: 1px;
+              border-radius: 1px;
+              /*gradients*/
+              background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+              background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+              background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+              background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+              background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+              /*shadow*/
+              -webkit-box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+              -moz-box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+              box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        /*button - read commands*/
+        .bt-change {
+            margin-right: 10px;
+            height: 19px;
+            width: 60px;
+            background: #1b39cd;
+            color: white;
+            border-radius: 2px;
+            margin-top: 3px;
+        }
+        .bt-change:hover {
+            background-color: #12d8ee;
+        }
+    </style>
+
+    <div align="center">
+        <input id="tx-title" type="text" title="Title">
+        <input type="checkbox" class="spoiler_links" title="Add time stamp">Time</input>
+        <input id="cb-message" style="cursor:pointer;" type="checkbox" title="Add message">Notify</input>
+        <div  class="spoiler_body">
+            <input id="tx-time" type="time" placeholder="hrs:mins" name="time" min="00:00" max="24:00" title="Time stamp">
+        </div>
+        <input id="bt-change-title" class="button-view bt-change" type="button" value="Change">
+    </div>
+
+    {# scripts #}
+    <script>
+        $('#bt-change-title').click(function(){
+{#            if ($('#tx-title').val() != "") {#}
+                HipChat.auth.withToken(function (err, token) {
+                    $.ajax({
+                        type: "post",
+                        data: {
+                            text_title: $('#tx-title').val(),
+                            text_time: $('#tx-time').val(),
+                            cb_message: document.getElementById('cb-message').checked.toString()
+                        },
+                        url: "/change_title",
+                        cache: false,
+                        headers: {'Authorization': 'JWT ' + token},
+                        success: function () {
+                            $('#tx-title').val("");
+                            $('#tx-time').val("");
+                            $('#tx-time').checked(false);
+                        }
+                    });
+                });
+{#            }#}
+        });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+        $('.spoiler_links').change(function(){
+            $(this).parent().children('div.spoiler_body').toggle('normal');
+            return false;
+        });
+    });
+    </script>
+
+{% endblock %}

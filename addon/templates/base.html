@@ -1,0 +1,21 @@
+<html>
+
+  <head>
+      <!-- meta -->
+      <meta charset="utf-8">
+      <!-- css -->
+      <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>-->
+      <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/toggle.css') }}"/>-->
+      <!-- javascript -->
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script type="text/javascript" src="//aui-cdn.atlassian.com/aui-hipchat/0.0.3/js/aui-hipchat.min.js"></script>
+      <script type="text/javascript" src="//www.hipchat.com/atlassian-connect/all.js"></script>
+{#      <script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>#}
+  </head>
+
+  <body>
+      {% block content %}
+      {% endblock %}
+  </body>
+
+</html>

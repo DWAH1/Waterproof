@@ -1,0 +1,6 @@
+AC-Flask-HipChat
+Flask
+PyJWT
+pymongo
+redis
+requests
