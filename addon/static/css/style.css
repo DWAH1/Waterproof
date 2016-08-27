@@ -1,0 +1,10 @@
+ body {
+     font-family: sans-serif;
+     background: #1e252b;
+     color: aliceblue;
+ }
+
+tr:hover { background: #46558a }
+input:focus { outline: none; }
+
+

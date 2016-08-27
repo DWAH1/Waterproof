@@ -1,0 +1,58 @@
+/*common style for lightning button*/
+.button-view {
+    cursor:pointer;
+    color: #FFF0F5;
+    border: 0;
+    /*!*overflow: hidden;*!*/
+    /*display: block;*/
+    /*text-align: center;*/
+    /*line-height: 0;*/
+    /*transition*/
+   -webkit-transition: All 0.5s ease;
+   -moz-transition: All 0.5s ease;
+   -o-transition: All 0.5s ease;
+   transition: All 0.5s ease;
+   /*angle*/
+   -webkit-border-radius: 1px;
+   -moz-border-radius: 1px;
+   border-radius: 1px;
+   /*gradients*/
+   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+   background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+   background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+   background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+   /*shadow*/
+   -webkit-box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+/*button - change glance*/
+.bt-change {
+    margin-right: 10px;
+    height: 19px;
+    width: 60px;
+    background: #46558a;
+    color: white;
+    /*border-radius: 2px;*/
+    margin-top: 3px;
+}
+.bt-change:hover {
+    background-color: #47143d;
+}
+
+/*button - add glance*/
+.bt-add {
+    margin-bottom: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+    height: 30px;
+    width: 170px;
+    background: #46558a;
+    color: white;
+    /*border-radius: 2px;*/
+}
+.bt-add:hover {
+    background-color: #47143d;
+}

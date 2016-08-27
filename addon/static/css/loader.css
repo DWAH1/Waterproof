@@ -1,0 +1,20 @@
+.loader {
+  width: 0;
+  padding: 12px;
+  background-image:
+   radial-gradient(circle at 0% 0%, transparent 40%, rgb(70, 85, 138) 40%, rgb(70, 85, 138) 70%, transparent 70%),
+   radial-gradient(circle at 100% 0%, transparent 40%, rgba(71, 20, 61, 0.7) 40%, rgba(71, 20, 61, 0.7) 70%, transparent 70%),
+   radial-gradient(circle at 100% 100%, transparent 40%, rgba(71, 20, 61, 0.7) 40%, rgba(71, 20, 61, 0.7) 70%, transparent 70%),
+   radial-gradient(circle at 0% 100%, transparent 40%, rgba(71, 20, 61, 0.7) 40%, rgba(71, 20, 61, 0.7) 70%, transparent 70%);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: 100% 100%, 0 100%, 0 0, 100% 0;
+  -webkit-animation: loader linear .7s infinite;
+  animation: loader linear .7s infinite;
+}
+@-webkit-keyframes loader {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loader {
+  100% {transform: rotate(360deg);}
+}
