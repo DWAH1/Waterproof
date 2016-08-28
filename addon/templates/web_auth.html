@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/png"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/button.css') }}"/>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <title>Authorization</title>
+
+    </head>
+
+    <body>
+
+        <div align="center">
+            <form action="/login" method="post" onsubmit="return check();">
+                <input id="tx-auth" class="auth-input" type="text" placeholder="Auth token" name="txglobaltoken"></br>
+                <input id="bt-auth" class="button-view bt-login" type="submit" value="Login"/>
+            </form>
+        </div>
+
+        <script>
+            $("#tx-auth").click(function () {
+                $("#tx-auth").css({"background-color": "white"});
+            });
+
+            function check() {
+                if ($("#tx-auth").val() != "") {
+                    return true;
+                }
+                else {
+                    $("#tx-auth").css({"background-color": "lightcoral"});
+                    return false;
+                }
+            }
+        </script>
+
+    </body>
+
+</html>

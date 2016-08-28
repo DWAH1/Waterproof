@@ -1,10 +1,39 @@
- body {
-     font-family: sans-serif;
-     background: #1e252b;
-     color: aliceblue;
- }
+body {
+    font-family: sans-serif;
+    background: #1e252b;
+    color: aliceblue;
+}
 
-tr:hover { background: #46558a }
-input:focus { outline: none; }
+form {
+    margin: 0 auto;
+}
 
+tr:hover {
+    background: #46558a;
+    font-weight: bolder;
+}
 
+input:focus {
+    outline: none;
+}
+
+.auth-input {
+    text-align: center;
+    margin-top: 200px;
+    width: 400px;
+    height: 30px;
+    border: 0;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.checkbox-view {
+    position: absolute;
+    bottom: 148px;
+    /*margin-top: 4px;*/
+    /*color: #47143d;*/
+    /*height: 20px;*/
+    /*background-color: #46558a;*/
+    /*line-height: 10;*/
+    cursor: pointer;
+}

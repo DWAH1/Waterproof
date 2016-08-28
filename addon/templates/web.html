@@ -1,43 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- The Modal -->
-<div id="modal-popup" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">×</span>
-      <h2 id="modal-info-header">Modal Header</h2>
-        <div id="loader-place"></div>
-    </div>
-      <div id="ad">
-              <div id="change-ad" style="margin-top: 10px; display: none">
-                  <input id="tx-ad"
-                         style="border-radius: 5px; border: 0 #46558a; margin-left: 5px" type="text"
-                         placeholder="New advertisement"/>
-                  <input id="bt-ch" class="button-view bt-change" type="button" value="Change"
-                         onclick="changeGlance();"/>
-                  <input id="bt-del" style="float: right"
-                         align="right" class="button-view bt-change" type="button" value="Delete"
-                         onclick="deleteGlance();"/>
-              </div>
-              <div class="modal-body"></div>
-          <p id="modal-date-created" align="right" style="font-size: 10px"></p>
-      </div>
-      <div id="modal-error"></div>
-      <div align="center" id="modal-place-button-add" style="display: none">
-          <input align="right" class="button-view bt-add" type="button" value="Add"
-                 onclick="createGlance();"
-          />
-      </div>
-    <div class="modal-footer">
-        <h4 id="modal-info-footer">Modal Footer</h4>
-        <h4 id="h-roomid" style="display: none"></h4>
-    </div>
-  </div>
+    <!-- The Modal -->
+    <div id="modal-popup" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h2 id="modal-info-header">Modal Header</h2>
+            <div id="loader-place"></div>
+        </div>
+          <div id="ad">
+                  <div id="change-ad" style="margin-top: 10px; display: none">
+                      <input id="tx-ad"
+                             style="background-color: lightgrey; border-radius: 5px; border: 0 #46558a; margin-left: 5px" type="text"
+                             placeholder="New advertisement"/>
+                      <input id="bt-ch" class="button-view bt-change" type="button" value="Change"
+                             onclick="changeGlance();"/>
 
-</div>
+                      <label style="font-size: 14px" for="ch-notify">Notify</label>
+                      <input id="ch-notify" class="checkbox-view" type="checkbox"/>
+                      <label style="font-size: 14px; margin-left: 50px" for="tx-time">Time</label>
+                      <input style="background-color: lightgrey; border-radius: 5px; border: 0 #46558a;"
+                             id="tx-time" type="time" placeholder="hrs:mins" name="time"
+                             min="00:00" max="24:00" title="Time stamp"/>
+                      <input id="bt-del" style="float: right"
+                             align="right" class="button-view bt-change" type="button" value="Delete"
+                             onclick="deleteGlance();"/>
+                  </div>
+                  <div class="modal-body"></div>
+              <p id="modal-date-created" align="right" style="font-size: 10px"></p>
+          </div>
+          <div id="modal-error"></div>
+          <div align="center" id="modal-place-button-add" style="display: none">
+              <input align="right" class="button-view bt-add" type="button" value="Add"
+                     onclick="createGlance();"
+              />
+          </div>
+        <div class="modal-footer">
+            <h4 id="modal-info-footer">Modal Footer</h4>
+            <h4 id="h-roomid" style="display: none"></h4>
+        </div>
+      </div>
+
+    </div>
 
     <table align="center">
         <tr>
@@ -47,7 +54,7 @@
         {% for room in rooms %}
             <tr style="cursor: pointer" class="popup-link"
                 onclick="renderInfo('{{room.id}}', '{{room.name}}', '{{room.privacy}}');">
-                <td align="left">{{room.name}}</td>
+                <td width="500px" align="left">{{room.name}}</td>
                 <td>{{room.id}}</td>
             </tr>
         {% endfor %}

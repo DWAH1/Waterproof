@@ -56,3 +56,19 @@
 .bt-add:hover {
     background-color: #47143d;
 }
+
+/*button - add glance*/
+.bt-login {
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    height: 40px;
+    width: 380px;
+    background: #46558a;
+    color: white;
+    /*border-radius: 2px;*/
+}
+.bt-login:hover {
+    background-color: #47143d;
+}
