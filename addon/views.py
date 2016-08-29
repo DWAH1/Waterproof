@@ -3,10 +3,11 @@ from ac_flask.hipchat import room_client, addon_client, sender, context, tenant
 from flask import render_template, request, redirect, url_for
 from ac_flask.hipchat.glance import Glance
 import werkzeug.exceptions, json
+import time
 
 from addon import addon, app
 
-BASE_URl = "https://b8959256.ngrok.io"
+BASE_URl = "https://95.213.247.143"
 GLOBAL_TOKEN = None
 
 
@@ -18,7 +19,7 @@ def configure():
     return "+"
 
 
-@app.route(rule="/index", methods=['get'])
+@app.route(rule="/index", methods=['get', 'post'])
 def index():
     resp = room_client.get_rooms(token=GLOBAL_TOKEN)
     if resp.status_code == 200:
@@ -36,6 +37,7 @@ def login():
     except werkzeug.exceptions.BadRequest:
         pass
     resp = room_client.get_rooms(token=GLOBAL_TOKEN)
+    #print resp.text
     if resp.status_code == 200:
         return redirect(url_for("index"))
     else:

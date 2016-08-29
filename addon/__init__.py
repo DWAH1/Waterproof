@@ -2,7 +2,7 @@ from ac_flask.hipchat import Addon
 from flask import Flask
 import os
 
-os.environ["AC_BASE_URL"] = "https://b8959256.ngrok.io"  # server's address or tunnel address
+os.environ["AC_BASE_URL"] = "https://95.213.247.143"  # server's address or tunnel address
 
 app = Flask(__name__)
 #app.config.from_object('config')
