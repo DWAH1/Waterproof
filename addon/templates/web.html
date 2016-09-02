@@ -15,19 +15,21 @@
                   <div id="change-ad" style="margin-top: 10px; display: none">
                       <input id="tx-ad"
                              style="background-color: lightgrey; border-radius: 5px; border: 0 #46558a; margin-left: 5px" type="text"
-                             placeholder="New advertisement"/>
-                      <input id="bt-ch" class="button-view bt-change" type="button" value="Change"
-                             onclick="changeGlance();"/>
-
-                      <label style="font-size: 14px" for="ch-notify">Notify</label>
+                             placeholder="Title"/>
+                      <label style="font-size: 14px; margin-left: 20px" for="ch-notify">Notify</label>
                       <input id="ch-notify" class="checkbox-view" type="checkbox"/>
-                      <label style="font-size: 14px; margin-left: 50px" for="tx-time">Time</label>
-                      <input style="background-color: lightgrey; border-radius: 5px; border: 0 #46558a;"
+                      <label style="font-size: 14px; margin-left: 20px" for="tx-time">Time</label>
+                      <input style="background-color: lightgrey; border-radius: 5px; border: 0 #46558a; margin-right: 20px"
                              id="tx-time" type="time" placeholder="hrs:mins" name="time"
                              min="00:00" max="24:00" title="Time stamp"/>
+                      <input id="bt-ch" class="button-view bt-change" type="button" value="Change"
+                             onclick="changeGlance();"/>
                       <input id="bt-del" style="float: right"
                              align="right" class="button-view bt-change" type="button" value="Delete"
-                             onclick="deleteGlance();"/>
+                             onclick="deleteGlance();"/> </br>
+                      <textarea id="text-description"
+                                style="margin-left: 10px; margin-top: 10px; width: 380px; height: 100px; display: none; background-color: lightgray; resize: none; border-radius: 3px"
+                                placeholder="Description"></textarea>
                   </div>
                   <div class="modal-body"></div>
               <p id="modal-date-created" align="right" style="font-size: 10px"></p>
@@ -61,3 +63,4 @@
     </table>
 
 {% endblock %}
+

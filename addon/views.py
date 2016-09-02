@@ -77,13 +77,14 @@ def change_glance():
     title = request.form["title"].encode('utf-8')
     notify = request.form["notify"].encode('utf-8')
     time = request.form["time"].encode('utf-8')
+    description = request.form["description"].encode('utf-8')
 
-    if time == "":
-        glance_data = Glance().with_label(title).with_lozenge("!", 'current').data
-    else:
-        glance_data = Glance().with_label(title).with_lozenge(str(time), 'current').data
-    addon_client.update_room_glance_custom(token=token, glance_key="key{0}".format(room_id),
-                                           glance_data=glance_data, room_id=room_id)
+    #if time == "":
+    #    glance_data = Glance().with_label(title).with_lozenge("!", 'current').data
+    #else:
+    #    glance_data = Glance().with_label(title).with_lozenge(str(time), 'current').data
+    #addon_client.update_room_glance_custom(token=token, glance_key="key{0}".format(room_id),
+    #                                       glance_data=glance_data, room_id=room_id)
 
     room_client.delete_glance(token=token, room_id=room_id, glance_key="key{0}".format(room_id))
     response = room_client.create_glance(token=token, room_id=room_id,
@@ -91,10 +92,21 @@ def change_glance():
                                          advertisement=title,
                                          base_url=BASE_URl).status_code
     if notify == "true":
+        time = time if time != "" else "--"
         room_client.send_notification_custom(message=title,
+                                             time=str(time),
+                                             base_url=BASE_URl,
                                              token=token,
                                              room_id=room_id,
-                                             notify=True)
+                                             notify=True,
+                                             description=description)
+
+    if time == "":
+        glance_data = Glance().with_label(title).with_lozenge("!", 'current').data
+    else:
+        glance_data = Glance().with_label(title).with_lozenge(str(time), 'current').data
+    addon_client.update_room_glance_custom(token=token, glance_key="key{0}".format(room_id),
+                                           glance_data=glance_data, room_id=room_id)
 
     return str(response)
 

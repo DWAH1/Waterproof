@@ -14,6 +14,8 @@ window.onclick = function(event) {
         $('#modal-place-button-add').hide("");
         $('#tx-ad').css({"background-color": "lightgrey"});
         $("#change-ad").hide();
+        $('textarea#text-description').hide();
+        $('textarea#text-description').val("");
 
         modal.style.display = "none";
     }
@@ -37,6 +39,8 @@ $(".close").click(function () {
     $('#tx-time').val([]);
     $('#tx-ad').css({"background-color": "lightgrey"});
     $("#change-ad").hide();
+    $('textarea#text-description').hide();
+    $('textarea#text-description').val("");
 
     $('#modal-popup').hide();
 });
@@ -72,6 +76,7 @@ function renderInfo(roomId, roomName, roomPrivacy) {
                     $("#tb-rooms").html("<table>");
                     $(".modal-body").html("<p>" + datails["name"] + "</p>");
                     $("#modal-date-created").text(datails["created"]);
+                    $("#ch-notify").prop('checked', false);
                 }
                 $(".loader").remove();
             }
@@ -98,7 +103,8 @@ function renderInfo(roomId, roomName, roomPrivacy) {
                     room_id: roomId,
                     title: $('#tx-ad').val(),
                     notify: document.getElementById('ch-notify').checked.toString(),
-                    time: $('#tx-time').val()
+                    time: $('#tx-time').val(),
+                    description: $('textarea#text-description').val()
                 },
                 success: function (data) {
                     renderInfo(roomId,
@@ -108,6 +114,8 @@ function renderInfo(roomId, roomName, roomPrivacy) {
                     $('#tx-ad').val("");
                     $('#tx-time').val([]);
                     $("#ch-notify").prop("checked", false);
+                    $('textarea#text-description').hide();
+                    $('textarea#text-description').val("");
                 }
             });
         }
@@ -139,6 +147,7 @@ function renderInfo(roomId, roomName, roomPrivacy) {
                 $('#tx-ad').css({"background-color": "lightgrey"});
                 $('#tx-time').val([]);
                 $("#ch-notify").prop("checked", false);
+                $('textarea#text-description').val("");
             }
         });
     }
@@ -163,3 +172,12 @@ function renderInfo(roomId, roomName, roomPrivacy) {
             }
         });
     }
+
+    $("#ch-notify").change(function () {
+        if( $("#ch-notify").is(":checked") ) {
+            $("#text-description").fadeIn();
+        }
+        else {
+            $("#text-description").hide();
+        }
+    });
